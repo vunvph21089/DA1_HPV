@@ -154,7 +154,7 @@
                                                  <!-- menu 2 -->
                                                 <li><a href="index.php?act=hotdeals">Hot Deals</a></li>
                                                 <!-- menu 3 -->
-                                                <li><a href="index.php?act=features">Bất động sản</a></li>
+                                                <li><a href="index.php?act=batdongsan">Bất động sản</a></li>
                                                 <!-- menu 4 -->
                                                 <!-- <li><a href="#">FQA</a></li>                                                  -->
 
