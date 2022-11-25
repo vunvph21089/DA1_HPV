@@ -11,6 +11,12 @@ function insert_anhmota($fileName,$id_bds ){
     pdo_execute($sql);
 
 }
+function load_anhmota($id)
+{
+    $sql = "SELECT * FROM images where id_bds=".$id;
+    $anhmota = pdo_query($sql);
+    return $anhmota;
+}
 function delete_bds($id)
 {
     $sql = "DELETE FROM bds WHERE id=" . $id;

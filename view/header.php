@@ -73,15 +73,36 @@
             #box_bds{
                 background-color:#fff;
                 border-bottom-left-radius:5px;
-                border-bottom-right-radius:5px
+                border-bottom-right-radius:5px;
+                text-align:left;
+                padding-left:10px;
             }
             .box_img_bds{
+                width: 100%;
+                height: 250px !important;
+                object-fit: cover;
                 border-top-left-radius:5px;
                 border-top-right-radius:5px;
             }
+            .img_lienquan{
+                width: 100%;
+                height: 250px !important;
+                object-fit: cover;
+                border-radius: 5px;
+            }
             #ten_bds{
+                margin: 0 0 10px 0;
                 font-family: Arial, Helvetica, sans-serif;
                 text-transform: capitalize;
+                font-size: 16px;
+            }
+            
+            .info_bds p,strong{
+                font-size: 14px;
+                margin-top: 5px;
+            }
+            .header{
+                z-index: 999 !important;
             }
         </style>
 

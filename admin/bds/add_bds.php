@@ -72,14 +72,14 @@
                                                     <div class="col-lg-3 col-sm-6">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="stocks-input">Số phòng</label>
-                                                            <input type="number" name="sophong" class="form-control" id="stocks-input" placeholder="Nhập số phòng ngủ" required>
+                                                            <input type="number" name="sophong" class="form-control" id="stocks-input" placeholder="Nhập số phòng ngủ">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3 col-sm-6">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="product-price-input">Giá</label>
                                                             <div class="input-group has-validation mb-3">
-                                                                <span class="input-group-text" id="product-price-addon">$</span>
+                                                                <span class="input-group-text" id="product-price-addon">VND</span>
                                                                 <input type="number" name="gia" class="form-control" id="product-price-input" placeholder="Nhập vào giá" aria-label="Price" aria-describedby="product-price-addon" required>
                                                             </div>
                                                         </div>
@@ -89,7 +89,7 @@
                                                         <div class="mb-3">
                                                             <label class="form-label" for="product-price-input">Diện tích</label>
                                                             <div class="input-group has-validation mb-3">
-                                                                <span class="input-group-text" id="product-price-addon">m2</span>
+                                                                <span class="input-group-text" id="product-price-addon">m²</span>
                                                                 <input type="number" name="dientich" class="form-control" id="product-price-input" placeholder="VD 80" aria-label="Price" aria-describedby="product-price-addon" required>
                                                             </div>
                                                         </div>

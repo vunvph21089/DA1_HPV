@@ -16,6 +16,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $id = $_GET['idbds'];
                 $onebds = loadone_bds($id);
                 extract($onebds);
+                $anhmota = load_anhmota($id);
                 $bds_cungloai = load_bds_cungloai($id, $id_loaibds);
                 include "view/bds_chitiet.php";
             } else {

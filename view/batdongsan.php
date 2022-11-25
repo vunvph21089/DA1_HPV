@@ -20,7 +20,6 @@
                     } else {
                         $current = "";
                     }
-                    
                     echo '<li class="dress ' . $current . ' "><a href="' . $linkdm . '" data-filter="*">' . $name . '</a></li>';
                 }
                 ?>
@@ -34,22 +33,22 @@
                 extract($bds);
                 $linkbds = "index.php?act=batdongsanchitiet&idbds=" . $id;
                 echo '
-                                <div class="col-md-3 col-sm-6 isotope-item dress ">
-                                    <div class="thumbnail no-border no-padding">
-                                        <div class="media">
-                                            <a href="' . $linkbds . '"><img class="box_img_bds" src="' . $img . '" width="340px" height="auto" alt=""></a>
-                                        </div>
-                                        <div id="box_bds" class="caption" >
-                                            <h3 class="caption-title"><a href="' . $linkbds . '">' . $name . '</a></h3>
-                                            <div style="text-align:left;padding-left:10px">
-                                                <strong>' . $price . ' tỷ &nbsp;&nbsp;&nbsp;&nbsp; <span>' . $dientich . ' m²</span></strong> 
-                                                <p style="text-transform:capitalize;">' . $location . '</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div style="clear:both;"></div>
+                    <div class="col-md-3 col-sm-6 isotope-item dress ">
+                        <div class="thumbnail no-border no-padding">
+                            <div class="media">
+                                <a href="' . $linkbds . '"><img  class="box_img_bds" src="' . $img . '"  alt=""></a>
+                            </div>
+                            <div id="box_bds" class="caption" >
+                                <h3 id="ten_bds" class="caption-title"><a href="' . $linkbds . '">' . $name . '</a></h3>
+                                <div class="info_bds">
+                                    <strong>' . $price . ' tỷ &nbsp;&nbsp;&nbsp;&nbsp; <span>' . $dientich . ' m²</span></strong> 
+                                    <p style="text-transform:capitalize;">' . $location . '</p>
                                 </div>
-                                ';
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                ';
             }
             ?>
 
@@ -58,7 +57,7 @@
         </div>
 
         <!-- Pagination -->
-        <div class="pagination-wrapper">
+        <!-- <div class="pagination-wrapper">
             <ul class="pagination">
                 <li class="disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
                 <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
@@ -67,7 +66,7 @@
                 <li><a href="#">4</a></li>
                 <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
             </ul>
-        </div>
+        </div> -->
         <!-- /Pagination -->
 
     </div>

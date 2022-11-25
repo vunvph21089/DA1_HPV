@@ -16,7 +16,6 @@ if (isset($_GET['act'])) {
             // Controller bat dong san
         case 'addbds':
             if (isset($_POST['submit']) && ($_POST['submit'])) {
-                $id_bds = $_POST['id'];
                 $id_loaibds = $_POST['loaibds'];
                 $tenbds = $_POST['name_bds'];
                 $filename = "";
@@ -26,10 +25,9 @@ if (isset($_GET['act'])) {
                 $info = $_POST['mota'];
                 $sophong = $_POST['sophong'];
                 $id_user = $_POST['nguoidang'];
-                $targetDir = "../uploads/";
+                $targetDir = '../uploads/';
                 $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
                 $insertValuesSQL = '';
-
 
                 // UPLOAD ẢNH
                 if ($_FILES["anh"]['size'] > 0) {
@@ -38,6 +36,7 @@ if (isset($_GET['act'])) {
                     $filename = 'uploads/' . $filename;
                 }
                 // END UPLOAD
+
                 // UPLOAD ẢNH MÔ TẢ
                 $id = insert_bds($tenbds, $filename, $price, $diachi, $dientich, $info, $sophong, $id_loaibds, $id_user);
                 foreach ($_FILES["files"]['name'] as $key => $val) {
@@ -48,16 +47,17 @@ if (isset($_GET['act'])) {
                     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
                     if (in_array($fileType, $allowTypes)) {
                         // Upload file to server 
-
+                        
                         if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)) {
                             // Image db insert sql 
+                            $upload_img = 'DA1_HPV/uploads/'.$fileName;
+                            var_dump($upload_img);
+                            insert_anhmota($upload_img, $id);
 
-                            $insertValuesSQL .= "('" . $fileName . "')";
-                            insert_anhmota($fileName, $id);
                         }
                     }
+                    
                 }
-                
                 $thongbao = "Add Succesfull";
             }
             $listloaibds = loadAll_danhmuc();
@@ -65,7 +65,6 @@ if (isset($_GET['act'])) {
             include "bds/add_bds.php";
             break;
         case 'listbds':
-
             $listloaibds = loadAll_danhmuc();
             $listbds = loadall_bds();
             include "bds/list_bds.php";
