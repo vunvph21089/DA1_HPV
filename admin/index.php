@@ -27,7 +27,6 @@ if (isset($_GET['act'])) {
                 $id_user = $_POST['nguoidang'];
                 $targetDir = '../uploads/';
                 $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
-                $insertValuesSQL = '';
 
                 // UPLOAD ẢNH
                 if ($_FILES["anh"]['size'] > 0) {
@@ -47,16 +46,14 @@ if (isset($_GET['act'])) {
                     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
                     if (in_array($fileType, $allowTypes)) {
                         // Upload file to server 
-                        
+
                         if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)) {
                             // Image db insert sql 
-                            $upload_img = 'DA1_HPV/uploads/'.$fileName;
+                            $upload_img = '/DA1_HPV/uploads/' . $fileName;
                             var_dump($upload_img);
                             insert_anhmota($upload_img, $id);
-
                         }
                     }
-                    
                 }
                 $thongbao = "Add Succesfull";
             }
@@ -101,11 +98,32 @@ if (isset($_GET['act'])) {
                 $sophong = $_POST['sophong'];
                 $id_loaibds = $_POST['loaibds'];
                 $id_user = $_POST['nguoidang'];
+                $targetDir = '../uploads/';
+                $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
                 // UPDATE ẢNH
                 if ($anh['size'] > 0) {
                     $filename = uniqid() . '-' . $anh['name'];
                     move_uploaded_file($anh['tmp_name'], '../uploads/' . $filename);
                     $imgValue = 'uploads/' . $filename;
+                }
+                // UPLOAD ẢNH MÔ TẢ
+                $id = update_bds($id, $tenbds, $imgValue, $price, $diachi, $dientich, $info, $sophong, $id_loaibds, $id_user);
+                foreach ($_FILES["files"]['name'] as $key => $val) {
+                    $fileName = basename($_FILES['files']['name'][$key]);
+                    $targetFilePath = $targetDir . $fileName;
+
+                    // Check whether file type is valid 
+                    $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+                    if (in_array($fileType, $allowTypes)) {
+                        // Upload file to server 
+
+                        if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)) {
+                            // Image db insert sql 
+                            $upload_img = 'uploads/' . $fileName;
+                            var_dump($upload_img);
+                            update_anhmota($upload_img, $id);
+                        }
+                    }
                 }
                 update_bds($id, $tenbds, $imgValue, $price, $diachi, $dientich, $info, $sophong, $id_loaibds, $id_user);
                 $thongbao = "Add Succesfull";

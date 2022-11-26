@@ -164,7 +164,7 @@
                                 <select class="form-select" name="loaibds" id="choices-category-input" data-choices data-choices-search-false>
                                     <?php foreach ($listloaibds as $index => $dm) : ?>
                                         <option name="name" <?php if ($bds['id_loaibds'] == $dm['id']) : ?>selected <?php
-                                            endif ?> value="<?= $dm['id'] ?>"><?= $dm['name'] ?></option>
+                                                                                                                endif ?> value="<?= $dm['id'] ?>"><?= $dm['name'] ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>
@@ -208,16 +208,9 @@
                                     <h5 class="fs-14 mb-1">Danh mục ảnh</h5>
                                     <p class="text-muted">Thêm ảnh mô tả cho bất động sản</p>
 
-                                    <div class="dropzone">
-                                        <div class="fallback">
-                                            <input name="file" type="file" multiple="multiple">
-                                        </div>
-                                        <div class="dz-message needsclick">
-                                            <div class="mb-3">
-                                                <i class="display-4 text-muted ri-upload-cloud-2-fill"></i>
-                                            </div>
-                                            <h5>Thả tệp vào đây hoặc nhấp để tải lên</h5>
-                                        </div>
+                                    <div class="dropzone" hidden></div>
+                                    <div class="fallback">
+                                        <input type="file" name="files[]" multiple>
                                     </div>
 
                                     <ul class="list-unstyled mb-0" id="dropzone-preview">

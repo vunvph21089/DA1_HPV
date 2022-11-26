@@ -26,14 +26,16 @@
                     ?>
                     <div class="img-carousel">
                         <?php foreach ($anhmota as $index => $img) : ?>
-                            <div><img src="<?= $img['file_name'] ?>" alt="" /></div>
+                            <div><img class="img_mota" src="<?= $img['file_name'] ?>" alt="" /></div>
                         <?php endforeach ?>
                     </div>
+                    <div></div>
+                    <h3 id="ten_bds_chitiet" class="block-title"><span><?= $name ?></span></h3>
                 </div>
 
                 <div class="col-lg-4 col-md-5 col-sm-7">
                     <div class="project-overview">
-                        <h3 id="ten_bds" class="block-title"><span><?= $name ?></span></h3>
+                    <h3 class="block-title"><span>Mô tả</span></h3>
                         <p><?= $info ?></p>
                     </div>
 
@@ -44,6 +46,8 @@
                             <dd><?= $price ?> tỷ</dd>
                             <dt>Diện tích</dt>
                             <dd><?= $dientich ?> m²</dd>
+                            <dt>Số phòng</dt>
+                            <dd><?= $sophong ?></dd>
                             <dt>Địa chỉ</dt>
                             <dd><?= $location ?></dd>
                         </dl>

@@ -72,7 +72,7 @@
                                                     <div class="col-lg-3 col-sm-6">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="stocks-input">Số phòng</label>
-                                                            <input type="number" name="sophong" class="form-control" id="stocks-input" placeholder="Nhập số phòng ngủ">
+                                                            <input type="number" name="sophong" value="0" class="form-control" id="stocks-input" placeholder="Nhập số phòng ngủ">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3 col-sm-6">

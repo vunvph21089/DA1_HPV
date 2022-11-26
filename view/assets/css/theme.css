@@ -549,7 +549,6 @@ ul.list-icons li > .fa {
     line-height: 20px;
     text-transform: uppercase;
     color: #14181c;
-    overflow: hidden;
 }
 .block-title span {
     display: inline-block;

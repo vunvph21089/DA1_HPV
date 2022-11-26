@@ -9,7 +9,13 @@ function insert_bds($tenbds, $hinh, $price, $diachi, $dientich, $info, $sophong,
 function insert_anhmota($fileName,$id_bds ){
     $sql = "INSERT INTO `images`(`file_name`, `id_bds`) VALUES ('$fileName','$id_bds')";
     pdo_execute($sql);
-
+}
+function update_anhmota($fileName,$id_bds ){
+    $sql = "UPDATE `images` SET 
+    `file_name`='$fileName' 
+    WHERE 'id_bds'='$id_bds'";
+    $id = pdo_query_last_id($sql);
+    return $id;
 }
 function load_anhmota($id)
 {
