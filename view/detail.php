@@ -1,3 +1,6 @@
+<?php
+include "view/header.php";
+?>
 <div class="content-area">
 
                 <!-- BREADCRUMBS -->
@@ -147,3 +150,6 @@
 
             </div>
             <!-- /CONTENT AREA -->
+            <?php
+include "view/footer.php";
+?>

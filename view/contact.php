@@ -1,3 +1,6 @@
+<?php
+include "view/header.php";
+?>
             <!-- CONTENT AREA -->
             <div class="content-area">
 
@@ -148,3 +151,6 @@
                 <!-- /PAGE -->
 
             </div>
+            <?php
+include "view/footer.php";
+?>

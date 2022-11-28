@@ -1,3 +1,6 @@
+<?php
+include "view/header.php";
+?>
 <!-- CONTENT AREA -->
 <div class="content-area">
 
@@ -541,3 +544,6 @@
 
 </div>
 <!-- /CONTENT AREA -->
+<?php
+include "view/footer.php";
+?>

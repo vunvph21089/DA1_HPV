@@ -1,3 +1,6 @@
+<?php
+include "view/header.php";
+?>
  <!-- CONTENT AREA -->
 
  <div class="content-area">
@@ -4183,7 +4186,9 @@
 
 
 
-
+<?php
+include "view/footer.php";
+?>
 
 
 <!-- PAGE -->

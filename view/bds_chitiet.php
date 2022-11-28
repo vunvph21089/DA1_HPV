@@ -1,3 +1,6 @@
+<?php
+include "view/header.php";
+?>
 <div class="content-area">
 
     <!-- BREADCRUMBS -->
@@ -52,29 +55,31 @@
                             <dt>Địa chỉ</dt>
                             <dd><?= $location ?></dd>
                         </dl>
+
                         <div class="button">
-                            <a href="#" class="btn btn-block btn-theme btn-theme-dark" onclick="modal()">Tư vấn ngay</a>
+                            <a href="#" class="btn btn-block btn-theme btn-theme-dark" onclick="modal()" >Tư vấn ngay</a>
                             <div class="modal-content" id="modal">
                                 <div class="modal-header bg-light p-3">
                                     <a href="" id="hidemodal" onclick="hidemodal()">
                                         <i class="fa-solid fa-xmark"></i>
                                     </a>
                                 </div>
-
-                                <form action="#" id="form_modal">
+                                <form action="index.php?act=tuvan" id="form_modal" method="POST">
+                            
                                     <div class="modal-body">
                                         <input type="hidden" id="id-field" />
-
                                         <div class="mb-3" id="modal-id" style="display: none;">
-                                            <label for="id-field1" class="form-label">ID</label>
-                                            <input type="text" id="id-field1" class="form-control" placeholder="ID" readonly />
+                                            <label for="id-field1" class="form-label"></label>                
+                                            <input type="hidden" id="id-field1" name="id_bds" class="form-control" placeholder="ID" readonly value="<?= $id ?>" />
+                                            <input type="hidden" id="id-field1" name="name" class="form-control" placeholder="ID" readonly value="<?=  $name ?>" />
+                                            <input type="hidden" id="id-field1" name="img" class="form-control" placeholder="ID" readonly value="<?= $img ?>" />
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="customername-field" class="form-label">Họ và tên</label>
-                                            <input type="text" name="user" id="customername-field" class="form-control" disabled />
+                                            <input type="text" name="user" id="customername-field" class="form-control"  value="" />
+                                            
                                         </div>
-
                                         <div class="mb-3">
                                             <label for="email-field" class="form-label">Email</label>
                                             <input type="email" name="email" id="email-field" class="form-control" placeholder="Nhập vào email" required />
@@ -92,10 +97,14 @@
                                     </div>
                                     <div class="modal-footer">
                                         <div class="hstack gap-2 justify-content-end">
-                                            <button type="submit" name="tuvan" class="btn btn-block btn-theme btn-theme-dark" id="add-btn">Gửi</button>
+                                            <!-- <button type="submit" name="tuvan" class="btn btn-block btn-theme btn-theme-dark" id="add-btn">Gửi</button> -->
+                                            
+                                            <input type="submit" name="tuvan" class="btn btn-block btn-theme btn-theme-dark" id="add-btn" value="gui">
                                         </div>
+                               
                                     </div>
                                 </form>
+                               
                             </div>
                         </div>
 
@@ -103,10 +112,11 @@
                 </div>
             </div>
             <script>
-                function modal(){
+                function modal() {
                     document.getElementById('modal').style.display = 'contents';
                 }
-                function hidemodal(){
+
+                function hidemodal() {
                     document.getElementById('modal').style.display = 'none';
                 }
             </script>
@@ -151,3 +161,6 @@
 
 </div>
 <!-- /CONTENT AREA -->
+<?php
+include "view/footer.php";
+?>

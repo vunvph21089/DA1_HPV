@@ -128,7 +128,7 @@ if (isset($_GET['act'])) {
                     extract($oneanhmota);
                 }
             }
-            include "bds/update_anhmota.php";
+            include "index.php?act=fixbds";
             break;
         case 'update_anhmota':
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {

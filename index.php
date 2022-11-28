@@ -3,11 +3,12 @@ include "model/account.php";
 include "model/bds.php";
 include "model/loai_bds.php";
 include "model/pdo.php";
-
+include "model/tuvan.php";
+// include "model/user.php";
 $bds_new = loadall_bds_home();
 $loaibds = loadAll_danhmuc();
 session_start();
-include "view/header.php";
+
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
@@ -66,15 +67,34 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             include 'view/contact.php';
             break;
+        case 'listtuvan':
+            $listtuvan = loadAll_bds_tuvan();
+           
+            
+            
+            include 'view/batdongsantuvan.php';
+            break;
+
         case 'tuvan':
             if (isset($_POST['tuvan']) && $_POST['tuvan']) {
+                $id_user = $_POST['id_user'];
+                // $oneuser=loadOne_user($id_user);
+                $id_bds = $_POST['id_bds'];
+                
+                $name = $_POST['name'];
+                $img = $_POST['img'];
+
                 $user = $_POST['user'];
                 $email = $_POST['email'];
                 $tel = $_POST['tel'];
                 $note_user = $_POST['note_user'];
+                date_default_timezone_set("Asia/Ho_Chi_Minh");
                 $time_yeucau = date('h:i:sa d/m/Y');
+                insert_bds_tuvan($user, $note_user, $id_bds,$name,$img,$time_yeucau, $email, $tel);
+                // $thongbao = "Bạn đã gửi yêu cầu tư vấn thành công";
+                header('location:index.php?act=listtuvan');
             }
-            include 'view/batdongsantuvan.php';
+
             break;
         case 'dangky':
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
@@ -82,7 +102,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $user = $_POST['user'];
                 $pass = $_POST['pass'];
                 insert_account($email, $user, $pass);
-                $thongbao = "Đăng ký thành công. Đăng nhập để sử dụng chức năng";
+                $thongbao = "Đăng ký thành công.Đăng nhập để sử dụng chức năng !";
             }
             include "view/account/register.php";
             break;
@@ -93,9 +113,9 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $checkuser = checkuser($user, $pass);
                 if (is_array($checkuser)) {
                     $_SESSION['user'] = $checkuser;
-                    // header('location:index.php');
+                    header('location:index.php');
                 } else {
-                    $thongbao = "Tài khoản không tồn tại vui lòng kiểm tra HOẶC đăng kí mới";
+                    $thongbao = "Tài khoản không tồn tại vui lòng kiểm tra hoặc đăng kí mới";
                 }
             }
             include "view/account/login.php";
@@ -129,11 +149,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case 'exit':
             session_unset();
-            include "view/account/login.php";
+            include "view/home.php";
             break;
     }
 } else {
 
     include "view/home.php";
 }
-include "view/footer.php";

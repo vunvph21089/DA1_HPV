@@ -1,3 +1,6 @@
+<?php
+include "view/header.php";
+?>
 <!-- PAGE WITH SIDEBAR -->
 <section class="page-section with-sidebar sub-page">
                     <div class="container">
@@ -327,4 +330,6 @@
                 </section>
                 <!-- /PAGE WITH SIDEBAR -->
 
-               
+                <?php
+include "view/footer.php";
+?>

@@ -60,7 +60,9 @@
     <!-- Head Libs -->
 
     <script src="assets/view/assets/plugins/modernizr.custom.js"></script>
-    
+
+
+
     <!--[if lt IE 9]>
 
         <script src="assets/plugins/iesupport/html5shiv.js"></script>
@@ -68,25 +70,44 @@
         <script src="assets/plugins/iesupport/respond.min.js"></script>
 
         <![endif]-->
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="../assets/images/logo_sm.png">
-
-    <!-- Plugins css -->
-    <link href="/assets/libs/dropzone/dropzone.css" rel="stylesheet" type="text/css" />
-    <!-- Layout config Js -->
-    <script src="/assets/js/layout.js"></script>
-    <!-- Bootstrap Css -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
-    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
-    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
-    <!-- custom Css-->
-    <link href="/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
-    <!-- fontawesome -->
-    <script src="https://kit.fontawesome.com/7e155ef984.js" crossorigin="anonymous"></script>
+        
     <style>
+        #box_bds {
+            background-color: #fff;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px
+        }
+
+        .box_img_bds {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        #ten_bds {
+            font-family: Arial, Helvetica, sans-serif;
+            text-transform: capitalize;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            /* font-family: 'Raleway', sans-serif;
+            padding: 28px; */
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 170px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
         #box_bds {
             background-color: #fff;
             border-bottom-left-radius: 5px;
@@ -181,10 +202,8 @@
             font-size:18px
         
         }
-        /* .button:hover .modal-content{
-            display: block;
-        } */
     </style>
+
 
 </head>
 
@@ -326,11 +345,46 @@
                                             </li>
 
                                             <li><a href="index.php?act=contact">Liên hệ</a>
-
-
                                             </li>
 
-                                            <li><a href="index.php?act=dangnhap">Đăng nhập</a></li>
+
+
+                                            <!-- <a href="index.php?act=dangnhap">Đăng nhập</a>
+                                            
+                                            <div class="dropdown">
+                                                <span>dang nhap</span>
+                                                <div class="dropdown-content">
+                                                    <p>Hello World!</p>
+                                                </div>
+                                            </div> -->
+                                            <?php
+                                            if (isset($_SESSION['user'])) {
+                                                extract($_SESSION['user']);
+                                            ?>
+                                                <li class="dropdown">
+                                                   
+                                                       
+                                                       <a href="">Chào <?= $user ?></a>
+                                                       
+                                                        <div class="dropdown-content">
+                                                            <a href="index.php?act=quenmk">Quên mật khẩu </a>
+                                                            <a href="index.php?act=edit_taikhoan">Cập nhật tài khoản</a>
+                                                            <?php
+                                                            if ($id_role == 1) {
+                                                            ?>
+                                                                <a href="admin/index.php">Đăng nhập Admin</a>
+                                                            <?php } ?>
+                                                            <a href="index.php?act=exit">Thoát</a>
+                                                        </iv>
+                                                    
+                                                </li>
+                                            <?php
+                                            } else {
+                                                echo ' <li><a  href="index.php?act=dangnhap">Đăng nhập</a></li>';
+                                            }
+                                            ?>
+
+
 
                                             <li>
 

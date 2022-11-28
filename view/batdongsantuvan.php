@@ -1,51 +1,46 @@
+<?php
+include "view/header.php";
+?>
 
 <table class="table align-middle" id="customerTable">
     <thead class="table-light text-muted">
         <tr>
-            <th class="sort" data-sort="eamil">ID</th>
-            <th class="sort" data-sort="customer_name">Tên</th>
-            <th class="sort" data-sort="email">Ảnh</th>
-            <th class="sort" data-sort="phone">Giá($)</th>
-            <th class="sort" data-sort="date">Địa chỉ</th>
-            <th class="sort" data-sort="status">Diện tích(m2)</th>
-            <th class="sort" data-sort="action">Số phòng</th>
-            <th class="sort" data-sort="action">Lượt xem</th>
-            <th class="sort" data-sort="email">Loại</th>
-            <th class="sort" data-sort="action">Người đăng</th>
-            <th class="sort" data-sort="action">Action</th>
+            <th class="sort" data-sort="eamil">ID Tư vấn</th>
+            <th class="sort" data-sort="eamil">ID Bất động sản</th>
+            <th class="sort" data-sort="eamil">Tên bất động sản</th>
+            
+            <th class="sort" data-sort="action">Ảnh</th>
+            <th class="sort" data-sort="customer_name">Tên khách hàng</th>
+            <th class="sort" data-sort="email">Email</th>
+            <th class="sort" data-sort="phone">Sđt</th>
+            <th class="sort" data-sort="date">Nội dung</th>
+            <th class="sort" data-sort="status">Thời gian yêu cầu</th>
+            <th class="sort" data-sort="action">Trạng thái</th>
         </tr>
     </thead>
     <tbody class="list form-check-all">
         <tr>
             <?php
-            foreach ($listbds as $bds) {
-                extract($bds);
-                $upbds = "index.php?act=fixbds&id=" . $id;
-                $image = "../" . $bds['img'];
+            foreach ($listtuvan as $tuvan) {
+                extract($tuvan);
                 echo  '<tr>
                             <td class="customer_name">' . $id . '</td>
+                            <td class="customer_name">' . $id_bds. '</td>
                             <td class="customer_name">' . $name . '</td>
-                            <td class="customer_name"><img src="' . $image . '" width="60" height="60"></td>
-                            <td class="customer_name">' . $price . '</td>
-                            <td class="customer_name">' . $location . '</td>
-                            <td class="customer_name">' . $dientich . '</td>
-                            <td class="customer_name">' . $sophong . '</td>
-                            <td class="customer_name">' . $luotxem . '</td>
-                            <td class="customer_name">' . $id_loaibds . '</td>
-                            <td class="customer_name">' . $id_user . '</td>
-                            <td>
-                                <ul class="list-inline hstack gap-2 mb-0">
-                                 <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Edit">
-                                     <a href="' . $upbds . '">
-                                         <i class="ri-pencil-fill fs-16"></i>
-                                     </a>
-                                 </li>
-                                 
-                             </ul>
-                            </td>
+                            <td class="customer_name"><img src="' .$img. '" width="60" height="60"></td>
+                            <td class="customer_name">' . $name_kh . '</td>
+                            <td class="customer_name">' . $email . '</td>
+                            <td class="customer_name">' . $tel . '</td>
+                            <td class="customer_name">' . $note_user . '</td>
+                            <td class="customer_name">' . $time_yeucau . '</td>
+                            <td class="customer_name"></td>
+
                             </tr>';
             }
             ?>
         </tr>
     </tbody>
 </table>
+<?php
+include "view/footer.php";
+?>
