@@ -30,6 +30,17 @@
             line-height: 5px;
             font-family: Arial, Helvetica, sans-serif;
         }
+        
+        .li{
+            display: grid;
+            grid-template-columns: 9fr 3fr;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .li div a{
+            margin-bottom: 10px;
+        }
+        
     </style>
 </head>
 

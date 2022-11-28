@@ -180,7 +180,7 @@
 
                                             <div class="dropzone" hidden></div>
                                             <div class="fallback">
-                                                <input type="file" name="files[]" multiple>
+                                                <input type="file" name="files[]" multiple class="form-control">
                                             </div>
                                             
 

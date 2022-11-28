@@ -18,12 +18,12 @@
     <!-- PAGE WITH SIDEBAR -->
     <section class="page-section sub-page">
         <div class="container">
-
+            <?php
+            extract($onebds);
+            ?>
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-sm-12 project-media">
-                    <?php
-                    extract($onebds);
-                    ?>
+
                     <div class="img-carousel">
                         <?php foreach ($anhmota as $index => $img) : ?>
                             <div><img class="img_mota" src="<?= $img['file_name'] ?>" alt="" /></div>
@@ -31,11 +31,12 @@
                     </div>
                     <div></div>
                     <h3 id="ten_bds_chitiet" class="block-title"><span><?= $name ?></span></h3>
+
                 </div>
 
                 <div class="col-lg-4 col-md-5 col-sm-7">
                     <div class="project-overview">
-                    <h3 class="block-title"><span>Mô tả</span></h3>
+                        <h3 class="block-title"><span>Mô tả</span></h3>
                         <p><?= $info ?></p>
                     </div>
 
@@ -51,14 +52,69 @@
                             <dt>Địa chỉ</dt>
                             <dd><?= $location ?></dd>
                         </dl>
+                        <div class="button">
+                            <a href="#" class="btn btn-block btn-theme btn-theme-dark" onclick="modal()">Tư vấn ngay</a>
+                            <div class="modal-content" id="modal">
+                                <div class="modal-header bg-light p-3">
+                                    <a href="" id="hidemodal" onclick="hidemodal()">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </a>
+                                </div>
+
+                                <form action="#" id="form_modal">
+                                    <div class="modal-body">
+                                        <input type="hidden" id="id-field" />
+
+                                        <div class="mb-3" id="modal-id" style="display: none;">
+                                            <label for="id-field1" class="form-label">ID</label>
+                                            <input type="text" id="id-field1" class="form-control" placeholder="ID" readonly />
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="customername-field" class="form-label">Họ và tên</label>
+                                            <input type="text" name="user" id="customername-field" class="form-control" disabled />
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="email-field" class="form-label">Email</label>
+                                            <input type="email" name="email" id="email-field" class="form-control" placeholder="Nhập vào email" required />
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="phone-field" class="form-label">Số điện thoại</label>
+                                            <input type="text" name="tel" id="phone-field" class="form-control" placeholder="Nhập vào số điện thoại" required />
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="phone-field" class="form-label">Lời nhắn</label>
+                                            <textarea name="note_user" class="form-control " cols="30" rows="10">Tôi quan tâm đến bất động sản này</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="hstack gap-2 justify-content-end">
+                                            <button type="submit" name="tuvan" class="btn btn-block btn-theme btn-theme-dark" id="add-btn">Gửi</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-
             </div>
+            <script>
+                function modal(){
+                    document.getElementById('modal').style.display = 'contents';
+                }
+                function hidemodal(){
+                    document.getElementById('modal').style.display = 'none';
+                }
+            </script>
 
             <hr class="page-divider" />
 
             <hr class="page-divider half" />
+
 
             <h2 class="block-title">Bất động sản liên quan</h2>
 

@@ -60,9 +60,7 @@
     <!-- Head Libs -->
 
     <script src="assets/view/assets/plugins/modernizr.custom.js"></script>
-
-
-
+    
     <!--[if lt IE 9]>
 
         <script src="assets/plugins/iesupport/html5shiv.js"></script>
@@ -70,6 +68,24 @@
         <script src="assets/plugins/iesupport/respond.min.js"></script>
 
         <![endif]-->
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../assets/images/logo_sm.png">
+
+    <!-- Plugins css -->
+    <link href="/assets/libs/dropzone/dropzone.css" rel="stylesheet" type="text/css" />
+    <!-- Layout config Js -->
+    <script src="/assets/js/layout.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/7e155ef984.js" crossorigin="anonymous"></script>
     <style>
         #box_bds {
             background-color: #fff;
@@ -77,8 +93,23 @@
             border-bottom-right-radius: 5px;
             text-align: left;
             padding-left: 10px;
+            position: relative;
         }
-
+        .hobbie{
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            color: #000;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 30px;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+        }
+        .hobbie:hover{
+            background-color: #ccc;
+        }
         .box_img_bds {
             width: 100%;
             height: 250px !important;
@@ -104,8 +135,9 @@
         #ten_bds {
             margin: 0 0 10px 0;
             font-family: Arial, Helvetica, sans-serif;
-            text-transform: capitalize;
+            text-transform: none;
             font-size: 16px;
+            
         }
 
         #ten_bds_chitiet {
@@ -128,6 +160,30 @@
         .header {
             z-index: 999 !important;
         }
+        .modal-content{
+            border: 1px solid #14181c;
+            border-radius: 10px;
+            display:none;
+            z-index: -1;
+        }
+        .modal-header{
+            height: 40px;
+            border-bottom: none;
+            background-color: #F3F6F9;
+            position: relative;
+        }
+        .modal-header a{
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            text-decoration:none;
+            color:#000;
+            font-size:18px
+        
+        }
+        /* .button:hover .modal-content{
+            display: block;
+        } */
     </style>
 
 </head>

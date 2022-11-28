@@ -76,6 +76,7 @@ if (isset($_GET['act'])) {
         case 'fixbds':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $bds = loadone_bds($_GET['id']);
+                $anhmota = load_anhmota($_GET['id']);
                 if (is_array($bds)) {
                     extract($bds);
                 }
@@ -100,6 +101,7 @@ if (isset($_GET['act'])) {
                 $id_user = $_POST['nguoidang'];
                 $targetDir = '../uploads/';
                 $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+
                 // UPDATE ẢNH
                 if ($anh['size'] > 0) {
                     $filename = uniqid() . '-' . $anh['name'];
@@ -107,24 +109,8 @@ if (isset($_GET['act'])) {
                     $imgValue = 'uploads/' . $filename;
                 }
                 // UPLOAD ẢNH MÔ TẢ
-                $id = update_bds($id, $tenbds, $imgValue, $price, $diachi, $dientich, $info, $sophong, $id_loaibds, $id_user);
-                foreach ($_FILES["files"]['name'] as $key => $val) {
-                    $fileName = basename($_FILES['files']['name'][$key]);
-                    $targetFilePath = $targetDir . $fileName;
 
-                    // Check whether file type is valid 
-                    $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
-                    if (in_array($fileType, $allowTypes)) {
-                        // Upload file to server 
 
-                        if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)) {
-                            // Image db insert sql 
-                            $upload_img = 'uploads/' . $fileName;
-                            var_dump($upload_img);
-                            update_anhmota($upload_img, $id);
-                        }
-                    }
-                }
                 update_bds($id, $tenbds, $imgValue, $price, $diachi, $dientich, $info, $sophong, $id_loaibds, $id_user);
                 $thongbao = "Add Succesfull";
             }
@@ -133,7 +119,39 @@ if (isset($_GET['act'])) {
             $listuser = loadAll_user();
             include "bds/list_bds.php";
             break;
-
+        case 'fix_anhmota':
+            if (isset($_GET['id_anhmota']) && ($_GET['id_anhmota'] > 0)) {
+                $oneanhmota = one_anhmota($_GET['id_anhmota']);
+                if (
+                    is_array($oneanhmota)
+                ) {
+                    extract($oneanhmota);
+                }
+            }
+            include "bds/update_anhmota.php";
+            break;
+        case 'update_anhmota':
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                $id = $_POST["id"];
+                $anh = $_FILES['anh'];
+                $imgValue = $oneanhmota['file_name'];
+                $oneanhmota = one_anhmota($id);
+                if ($anh['size'] > 0) {
+                    $filename = $anh['name'];
+                    move_uploaded_file($anh['tmp_name'], '/DA1_HPV/uploads/' . $filename);
+                    $oneanhmota = '/DA1_HPV/uploads/' . $filename;
+                }
+                update_anhmota($id, $oneanhmota);
+            }
+            include 'index.php?act=fixbds';
+            break;
+        case 'delete_anhmota':
+            if (isset($_GET['id_anhmota']) && ($_GET['id_anhmota'] > 0)) {
+                $id = $_GET['id_anhmota'];
+                delete_anhmota($id);
+            }
+            include 'index.php?act=fixbds=';
+            break;
             // Controller loai bat dong san
         case "addloaibds": {
                 if (isset($_POST["loaibds"]) && $_POST["loaibds"]) {
@@ -329,6 +347,18 @@ if (isset($_GET['act'])) {
             $listtintuc = loadall_tintuc();
             $listuser = loadAll_user();
             include "tintuc/list.php";
+            break;
+            // Tu van
+        case 'them_bds_tuvan':
+            
+            break;
+        case 'delete_bds_tuvan':
+            break;
+        case 'list_bds_tuvan':
+            break;
+        case 'sua_bds_tuvan':
+            break;
+        case 'update_bds_tuvan':
             break;
         default:
             include "home.php";

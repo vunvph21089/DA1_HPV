@@ -44,6 +44,7 @@
                                     <strong>' . $price . ' tỷ &nbsp;&nbsp;&nbsp;&nbsp; <span>' . $dientich . ' m²</span></strong> 
                                     <p style="text-transform:capitalize;">' . $location . '</p>
                                 </div>
+                                <a class="hobbie" href=""><i style="color:#000;" class="fa-regular fa-heart"></i></a>
                             </div>
                         </div>
                         <div style="clear:both;"></div>

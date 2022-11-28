@@ -6,23 +6,7 @@ function insert_bds($tenbds, $hinh, $price, $diachi, $dientich, $info, $sophong,
     $id = pdo_query_last_id($sql);
     return $id;
 }
-function insert_anhmota($fileName,$id_bds ){
-    $sql = "INSERT INTO `images`(`file_name`, `id_bds`) VALUES ('$fileName','$id_bds')";
-    pdo_execute($sql);
-}
-function update_anhmota($fileName,$id_bds ){
-    $sql = "UPDATE `images` SET 
-    `file_name`='$fileName' 
-    WHERE 'id_bds'='$id_bds'";
-    $id = pdo_query_last_id($sql);
-    return $id;
-}
-function load_anhmota($id)
-{
-    $sql = "SELECT * FROM images where id_bds=".$id;
-    $anhmota = pdo_query($sql);
-    return $anhmota;
-}
+
 function delete_bds($id)
 {
     $sql = "DELETE FROM bds WHERE id=" . $id;
@@ -90,4 +74,28 @@ function update_bds($id, $tenbds, $imgValue, $price, $diachi, $dientich, $info, 
         `id_loaibds`='$id_loaibds',
         `id_user`='$id_user' WHERE `id`='$id' ";
     pdo_execute($sql);
+}
+function insert_anhmota($fileName,$id_bds ){
+    $sql = "INSERT INTO `images`(`file_name`, `id_bds`) VALUES ('$fileName','$id_bds')";
+    pdo_execute($sql);
+}
+function update_anhmota($oneanhmota,$id){
+    $sql = "UPDATE `images` SET 
+    `file_name` = '$oneanhmota' WHERE id=".$id;
+    pdo_execute($sql);
+}
+function delete_anhmota($id){
+    $sql = "DELETE FROM images WHERE id=" . $id;
+    pdo_execute($sql);
+}
+function load_anhmota($id)
+{
+    $sql = "SELECT * FROM images where id_bds=".$id;
+    $anhmota = pdo_query($sql);
+    return $anhmota;
+}
+function one_anhmota($id){
+    $sql = "SELECT * FROM images where id=".$id;
+    $oneanhmota = pdo_query_one($sql);
+    return $oneanhmota;
 }

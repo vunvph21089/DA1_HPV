@@ -210,7 +210,27 @@
 
                                     <div class="dropzone" hidden></div>
                                     <div class="fallback">
-                                        <input type="file" name="files[]" multiple>
+                                        <input type="file" name="files[]" multiple class="form-control">
+                                    </div>
+                                    <div>
+                                        <ul style="list-style-type: none;padding:0 20px 0 20px;margin-top:10px">
+                                        <?php
+                                            foreach ($anhmota as $index => $img){
+                                                extract($img);
+                                                $up_anhmota = "index.php?act=fix_anhmota&id_anhmota=".$id;
+                                                $del_anhmota = "index.php?act=delete_anhmota&id_anhmota=".$id;
+                                                echo '
+                                                    <li class="li">
+                                                        <img src="'.$file_name.'" style="width: 100%;height:150px;object-fit:cover;" data-dz-thumbnail class="img-fluid rounded d-block"  alt="Product-Image" />
+                                                        <div style="width=100%">
+                                                            <a href="'.$up_anhmota.'" class="btn btn-sm btn-danger">Sửa</a>
+                                                            <a href="'.$del_anhmota.'" class="btn btn-sm btn-danger">Xoá</a>
+                                                        </div>
+                                                    </li>
+                                                ';
+                                            }
+                                        ?>
+                                        </ul>
                                     </div>
 
                                     <ul class="list-unstyled mb-0" id="dropzone-preview">
@@ -220,7 +240,7 @@
                                                 <div class="d-flex p-2">
                                                     <div class="flex-shrink-0 me-3">
                                                         <div class="avatar-sm bg-light rounded">
-                                                            <img data-dz-thumbnail class="img-fluid rounded d-block" src="#" alt="Product-Image" />
+
                                                         </div>
                                                     </div>
                                                     <div class="flex-grow-1">

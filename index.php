@@ -17,6 +17,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $onebds = loadone_bds($id);
                 extract($onebds);
                 $anhmota = load_anhmota($id);
+                // $user = loadOne_user($id_user);
                 $bds_cungloai = load_bds_cungloai($id, $id_loaibds);
                 include "view/bds_chitiet.php";
             } else {
@@ -64,6 +65,16 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             // code  vao day
 
             include 'view/contact.php';
+            break;
+        case 'tuvan':
+            if (isset($_POST['tuvan']) && $_POST['tuvan']) {
+                $user = $_POST['user'];
+                $email = $_POST['email'];
+                $tel = $_POST['tel'];
+                $note_user = $_POST['note_user'];
+                $time_yeucau = date('h:i:sa d/m/Y');
+            }
+            include 'view/batdongsantuvan.php';
             break;
         case 'dangky':
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
